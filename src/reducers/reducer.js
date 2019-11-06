@@ -19,7 +19,17 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case REMOVE_FEATURE:
-      return state;
+        console.log("REMOVE FEATURE TRIGGERED");
+
+      return {
+        ...state,
+        additionalFeatures: [...state.additionalFeatures, action.payload],
+        car: {
+          ...state.car,
+          price: state.car.price - action.payload.price,
+          features: [...state.car.features.filter(item => item.id !== action.payload.id) ]
+        }
+      };
 
     case BUY_ITEM:
       return {
