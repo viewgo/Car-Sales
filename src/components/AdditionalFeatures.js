@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { buyItem } from "../actions/actions";
 
 const AdditionalFeatures = props => {
-
   return (
     <div className="content">
       <h4>Additional Features</h4>
